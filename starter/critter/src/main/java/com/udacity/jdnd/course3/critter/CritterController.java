@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class CritterController {
 
     @GetMapping("/test")
-    public String test(){
+    public String test() {
         return "Critter Starter installed successfully";
     }
 }
