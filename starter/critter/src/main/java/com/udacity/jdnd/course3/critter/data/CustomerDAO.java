@@ -23,7 +23,7 @@ public class CustomerDAO {
     private static final String SELECT_PET_IDS_BY_CUSTOMER_ID = "select * from customer_pet where customer_id = :customerId";
     private static final String INSERT_CUSTOMER = "insert into customer (name, phone_number, notes) values (:name, :phoneNumber, :notes)";
     private static final String INSERT_CUSTOMER_PETS = "insert into customer_pet (customer_id, pet_id) values (:customerId, :petId)";
-    private static final String DELETE_CUSTOMER_PET_BY_CUSTOMER_ID = "delete customer_pet where customer_id = :customerId";
+    private static final String DELETE_CUSTOMER_PET_BY_CUSTOMER_ID = "delete from customer_pet where customer_id = :customerId";
 
     @Autowired
     NamedParameterJdbcTemplate jdbcTemplate;

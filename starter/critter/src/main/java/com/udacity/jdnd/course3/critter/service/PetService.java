@@ -25,11 +25,15 @@ public class PetService {
         Long newId = petDAO.createNewPet(petDTO);
         petDTO.setId(newId);
 
-        CustomerDTO owner = customerDAO.getCustomerById(petDTO.getOwnerId());
-        if (!owner.getPetIds().contains(newId)) {
-            List<Long> newPetIds = owner.getPetIds();
-            newPetIds.add(petDTO.getId());
-            customerDAO.updatePetIdsForCustomer(owner.getId(), newPetIds);
+        try {
+            CustomerDTO owner = customerDAO.getCustomerById(petDTO.getOwnerId());
+            if (!Objects.isNull(owner) && !owner.getPetIds().contains(newId)) {
+                List<Long> newPetIds = owner.getPetIds();
+                newPetIds.add(petDTO.getId());
+                customerDAO.updatePetIdsForCustomer(owner.getId(), newPetIds);
+            }
+        } catch (RuntimeException e) {
+
         }
 
         return getPetById(newId);
