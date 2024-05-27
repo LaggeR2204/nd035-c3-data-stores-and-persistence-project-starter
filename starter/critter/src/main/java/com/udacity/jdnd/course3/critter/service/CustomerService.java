@@ -4,10 +4,12 @@ import com.udacity.jdnd.course3.critter.data.CustomerDAO;
 import com.udacity.jdnd.course3.critter.user.CustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
 
+@Transactional
 @Service
 public class CustomerService {
     @Autowired
