@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "3da4eeec-6238-471f-ab55-ce0d742fa76e",
+		"_postman_id": "a38d3565-b954-44a3-9532-6a222c6a8e6e",
 		"name": "Udacity",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16096961"
 	},
 	"item": [
 		{
@@ -12,9 +13,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -48,9 +47,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -83,9 +80,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -113,14 +108,45 @@
 			"response": []
 		},
 		{
+			"name": "Save Schedule",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"date\": \"2024-05-27\",\r\n  \"petIds\": [1],\r\n  \"employeeIds\": [1],\r\n  \"activities\": [\"PETTING\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8082/schedule",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"schedule"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Add Employee Schedule",
 			"request": {
 				"method": "PUT",
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -159,8 +185,6 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -196,8 +220,6 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -236,8 +258,6 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -276,8 +296,6 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -291,7 +309,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/employee/2",
+					"raw": "http://localhost:8082/schedule/employee/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -300,7 +318,7 @@
 					"path": [
 						"schedule",
 						"employee",
-						"2"
+						"1"
 					]
 				}
 			},
@@ -316,8 +334,6 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -331,7 +347,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8082/schedule/employee/2",
+					"raw": "http://localhost:8082/schedule/customer/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -339,8 +355,8 @@
 					"port": "8082",
 					"path": [
 						"schedule",
-						"employee",
-						"2"
+						"customer",
+						"1"
 					]
 				}
 			},
@@ -356,9 +372,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -395,9 +409,7 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/json",
-						"type": "text"
+						"value": "application/json"
 					}
 				],
 				"body": {
@@ -433,8 +445,6 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -473,8 +483,6 @@
 				"header": [
 					{
 						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
 						"value": "application/json"
 					}
 				],
@@ -504,6 +512,5 @@
 			},
 			"response": []
 		}
-	],
-	"protocolProfileBehavior": {}
+	]
 }
