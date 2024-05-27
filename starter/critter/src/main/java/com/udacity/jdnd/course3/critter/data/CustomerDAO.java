@@ -9,12 +9,14 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Objects;
 
+@Transactional
 @Repository
 public class CustomerDAO {
     private static final String SELECT_CUSTOMERS = "select * from customer order by id";
@@ -23,7 +25,7 @@ public class CustomerDAO {
     private static final String SELECT_PET_IDS_BY_CUSTOMER_ID = "select * from customer_pet where customer_id = :customerId";
     private static final String INSERT_CUSTOMER = "insert into customer (name, phone_number, notes) values (:name, :phoneNumber, :notes)";
     private static final String INSERT_CUSTOMER_PETS = "insert into customer_pet (customer_id, pet_id) values (:customerId, :petId)";
-    private static final String DELETE_CUSTOMER_PET_BY_CUSTOMER_ID = "delete customer_pet where customer_id = :customerId";
+    private static final String DELETE_CUSTOMER_PET_BY_CUSTOMER_ID = "delete from customer_pet where customer_id = :customerId";
 
     @Autowired
     NamedParameterJdbcTemplate jdbcTemplate;

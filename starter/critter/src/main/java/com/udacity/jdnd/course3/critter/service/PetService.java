@@ -6,10 +6,12 @@ import com.udacity.jdnd.course3.critter.pet.PetDTO;
 import com.udacity.jdnd.course3.critter.user.CustomerDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Objects;
 
+@Transactional
 @Service
 public class PetService {
     @Autowired
@@ -25,11 +27,15 @@ public class PetService {
         Long newId = petDAO.createNewPet(petDTO);
         petDTO.setId(newId);
 
-        CustomerDTO owner = customerDAO.getCustomerById(petDTO.getOwnerId());
-        if (!owner.getPetIds().contains(newId)) {
-            List<Long> newPetIds = owner.getPetIds();
-            newPetIds.add(petDTO.getId());
-            customerDAO.updatePetIdsForCustomer(owner.getId(), newPetIds);
+        try {
+            CustomerDTO owner = customerDAO.getCustomerById(petDTO.getOwnerId());
+            if (!Objects.isNull(owner) && !owner.getPetIds().contains(newId)) {
+                List<Long> newPetIds = owner.getPetIds();
+                newPetIds.add(petDTO.getId());
+                customerDAO.updatePetIdsForCustomer(owner.getId(), newPetIds);
+            }
+        } catch (RuntimeException e) {
+
         }
 
         return getPetById(newId);

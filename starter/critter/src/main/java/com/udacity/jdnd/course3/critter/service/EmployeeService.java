@@ -5,12 +5,14 @@ import com.udacity.jdnd.course3.critter.user.EmployeeDTO;
 import com.udacity.jdnd.course3.critter.user.EmployeeRequestDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.DayOfWeek;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
+@Transactional
 @Service
 public class EmployeeService {
     @Autowired
